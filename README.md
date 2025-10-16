@@ -25,7 +25,70 @@
 > 基于公开补充数据，对 ICU 淋巴瘤患者院内死亡率进行机器学习复现研究
 > *We humbly hope this scaffold is helpful; any critique is sincerely welcome.* 🙇‍♂️
 
-![status](https://img.shields.io/badge/status-active-brightgreen) ![python](https://img.shields.io/badge/Python-3.10-blue) ![cpu](https://img.shields.io/badge/CPU--only-Yes-lightgrey)
+
+
+
+
+
+
+
+![status](https://img.shields.io/badge/status-active-brightgreen)
+![license](https://img.shields.io/badge/License-Apache-blue)
+![semver](https://img.shields.io/badge/SemVer-2.0.0-informational)
+![maintenance](https://img.shields.io/badge/maintained-yes-success)
+![PRs](https://img.shields.io/badge/PRs-welcome-ff69b4)
+![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0-ff8c00)
+
+
+
+![python](https://img.shields.io/badge/Python-3.10-blue)
+![cpu](https://img.shields.io/badge/CPU--only-Yes-lightgrey)
+![platform](https://img.shields.io/badge/platform-Linux%20%7C%20WSL2%20%7C%20macOS-lightgrey)
+![conda](https://img.shields.io/badge/conda-ready-green)
+![pip](https://img.shields.io/badge/pip-freeze%20locked-success)
+
+
+![env](https://img.shields.io/badge/env-conda.yml%20%7C%20requirements.txt-0aa)
+![docker](https://img.shields.io/badge/docker-optional-informational)
+![size](https://img.shields.io/badge/deps-lightweight-44cc11)
+
+
+![sklearn](https://img.shields.io/badge/scikit--learn-1.3%2B-005bbb)
+![xgboost](https://img.shields.io/badge/XGBoost-optional-orange)
+![lightgbm](https://img.shields.io/badge/LightGBM-optional-brightgreen)
+![catboost](https://img.shields.io/badge/CatBoost-optional-ffdd00)
+![optuna](https://img.shields.io/badge/Optuna-nested%20CV-6f42c1)
+![SHAP](https://img.shields.io/badge/Explainability-SHAP-00bcd4)
+![Calibration](https://img.shields.io/badge/Prob-Calibration-blueviolet)
+
+
+![Jupyter](https://img.shields.io/badge/Jupyter-ready-f37626?logo=jupyter&logoColor=white)
+![notebooks](https://img.shields.io/badge/notebooks-01--04%20ready-success)
+![repro](https://img.shields.io/badge/reproducible-yes-brightgreen)
+
+
+![figures](https://img.shields.io/badge/outputs-figures-blue)
+![tables](https://img.shields.io/badge/outputs-tables-9cf)
+![reports](https://img.shields.io/badge/report-export-green)
+
+![stars](https://img.shields.io/github/stars/jia-ning-tech/Mimic?style=social)
+![issues](https://img.shields.io/github/issues/jia-ning-tech/Mimic)
+![last-commit](https://img.shields.io/github/last-commit/jia-ning-tech/Mimic)
+![contributors](https://img.shields.io/github/contributors/jia-ning-tech/Mimic)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
 
@@ -92,7 +155,7 @@ make report MODEL=random_forest METHOD=isotonic
 
 ## 🗂️ 目录结构
 
-> 你可运行 `make readme-tree DEPTH=4` 将目录树注入下方占位区。
+> 你可运行 `make readme-tree DEPTH=2` 将目录树注入下方占位区。
 
 <!-- BEGIN:PROJECT_TREE -->
 <!-- BEGIN:PROJECT_TREE -->
@@ -430,7 +493,7 @@ make report MODEL=random_forest METHOD=isotonic
 ## 📮 联系我们
 
 * Issues / PR：欢迎在代码层面提出任何建议，我们会**非常认真**地学习与改进。
-* 也可通过邮件/内部渠道与我们沟通（）。
+* 也可通过邮件/内部渠道与我们沟通（256667503@qq.com）。
 
 > *Again, we are grateful for any feedback. Thank you for your time and patience.* 🌟
 
