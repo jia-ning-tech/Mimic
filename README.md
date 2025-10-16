@@ -95,7 +95,6 @@ make report MODEL=random_forest METHOD=isotonic
 > 你可运行 `make readme-tree DEPTH=4` 将目录树注入下方占位区。
 
 <!-- BEGIN:PROJECT_TREE -->
-<!-- BEGIN:PROJECT_TREE -->
 ```text
 .
 ├── catboost_info
@@ -119,11 +118,14 @@ make report MODEL=random_forest METHOD=isotonic
 │   ├── conda-linux-64.txt
 │   ├── conda.yml
 │   └── requirements.txt
-├──  notebooks
+├── notebooks
+│   ├── 00_environment_check.ipynb
 │   ├── 01_data_overview.ipynb
 │   ├── 02_preprocessing.ipynb
 │   ├── 03_modeling.ipynb
-│   └── 04_results_visualization.ipynb
+│   ├── 04_results_visualization.ipynb
+│   ├── 05_model_cards.ipynb
+│   └── 07_appendix_data_dictionary.ipynb
 ├── outputs
 │   ├── artifacts
 │   │   ├── feature_schema.json
@@ -134,11 +136,30 @@ make report MODEL=random_forest METHOD=isotonic
 │   │   ├── selected_features.csv
 │   │   └── selected_features.json
 │   ├── figures
+│   │   ├── calibration_test_random_forest_isotonic.png
+│   │   ├── calibration_test_random_forest_mi.png
+│   │   ├── calibration_test_random_forest.png
 │   │   ├── nested_cv_auc_random_forest.png
+│   │   ├── overview_corr_numeric.png
+│   │   ├── overview_missing_top10.png
+│   │   ├── overview_missing_top10_preproc.png
+│   │   ├── preproc_train_test_distribution.png
+│   │   ├── preproc_winsorization_demo.png
+│   │   ├── pr_test_random_forest_isotonic.png
+│   │   ├── pr_test_random_forest.png
+│   │   ├── roc_test_random_forest_isotonic.png
+│   │   ├── roc_test_random_forest_mi.png
+│   │   ├── roc_test_random_forest.png
 │   │   └── subgroup_forest_random_forest_isotonic.png
 │   ├── logs
 │   ├── mi_runs
 │   │   ├── index.json
+│   │   ├── metrics_m01_random_forest.csv
+│   │   ├── metrics_m01_random_forest_isotonic.csv
+│   │   ├── metrics_m02_random_forest.csv
+│   │   ├── metrics_m02_random_forest_isotonic.csv
+│   │   ├── metrics_m03_random_forest.csv
+│   │   ├── metrics_m03_random_forest_isotonic.csv
 │   │   ├── mi_m01.joblib
 │   │   ├── mi_m02.joblib
 │   │   └── mi_m03.joblib
@@ -152,8 +173,19 @@ make report MODEL=random_forest METHOD=isotonic
 │   │   ├── random_forest_m02.joblib
 │   │   └── random_forest_m03.joblib
 │   ├── nested_cv
+│   │   ├── metrics_per_fold_random_forest.csv
 │   │   ├── nested_cv_random_forest.csv
-│   │   └── nested_cv_random_forest_summary.json
+│   │   ├── nested_cv_random_forest_summary.json
+│   │   └── summary_random_forest.json
+│   ├── probs
+│   │   ├── probs_ensemble_random_forest_isotonic.npy
+│   │   ├── probs_ensemble_random_forest.npy
+│   │   ├── probs_m01_random_forest_isotonic.npy
+│   │   ├── probs_m01_random_forest.npy
+│   │   ├── probs_m02_random_forest_isotonic.npy
+│   │   ├── probs_m02_random_forest.npy
+│   │   ├── probs_m03_random_forest_isotonic.npy
+│   │   └── probs_m03_random_forest.npy
 │   ├── shap
 │   │   ├── random_forest_model.joblib
 │   │   ├── shap_importance_bar_random_forest.png
@@ -161,8 +193,20 @@ make report MODEL=random_forest METHOD=isotonic
 │   │   ├── shap_summary_random_forest.png
 │   │   └── shap_waterfall_random_forest_idx316.png
 │   ├── tables
+│   │   ├── data_dictionary.csv
+│   │   ├── metrics_test.csv
+│   │   ├── metrics_test_random_forest.csv
+│   │   ├── metrics_test_random_forest_isotonic.csv
+│   │   ├── metrics_test_random_forest_mi.csv
+│   │   ├── missing_top10_preproc.csv
+│   │   ├── model_auc_test.csv
+│   │   ├── model_card_logistic_isotonic.md
+│   │   ├── subgroup_metrics_random_forest_isotonic.csv
 │   │   ├── summary_metrics_random_forest.csv
-│   │   └── summary_shap_top20_random_forest.csv
+│   │   ├── summary_shap_top20_random_forest.csv
+│   │   ├── thresholds_random_forest.csv
+│   │   ├── thresholds_random_forest_isotonic.csv
+│   │   └── train_test_numeric_compare.csv
 │   ├── best_params_lightgbm.json
 │   ├── best_params_random_forest.json
 │   ├── calibration_random_forest_isotonic_m01.png
@@ -189,7 +233,6 @@ make report MODEL=random_forest METHOD=isotonic
 │   ├── roc_test.png
 │   ├── roc_test_random_forest_isotonic.png
 │   ├── roc_test_random_forest.png
-│   ├── subgroup_metrics_random_forest_isotonic.csv
 │   ├── summary_report.md
 │   ├── summary_shap_top20_random_forest.csv
 │   ├── threshold_scan_random_forest_isotonic.csv
@@ -216,17 +259,17 @@ make report MODEL=random_forest METHOD=isotonic
 │   │   ├── shap_run.cpython-310.pyc
 │   │   ├── subgroup_eval.cpython-310.pyc
 │   │   ├── threshold_scan.cpython-310.pyc
-│   │   └── train.cpython-310.pyc
+│   │   ├── train.cpython-310.pyc
+│   │   └── train_mi.cpython-310.pyc
 │   ├── calibrate.py
 │   ├── data_utils.py
-│   ├── dca_1.py
-│   ├── dca_2.py
 │   ├── dca.py
+│   ├── evaluate copy.py
 │   ├── evaluate.py
 │   ├── feature_select.py
-│   ├── feature_select_无正则化.py
 │   ├── ingest.py
 │   ├── __init__.py
+│   ├── models copy.py
 │   ├── models.py
 │   ├── multiple_imputation.py
 │   ├── nested_cv.py
@@ -234,19 +277,23 @@ make report MODEL=random_forest METHOD=isotonic
 │   ├── preprocess.py
 │   ├── report_export.py
 │   ├── shap_run.py
+│   ├── subgroup_eval copy.py
 │   ├── subgroup_eval.py
-│   ├── subgroup_eval未进行静音.py
+│   ├── threshold_scan copy.py
 │   ├── threshold_scan.py
 │   ├── train copy.py
+│   ├── train_mi copy.py
 │   ├── train_mi.py
 │   └── train.py
 ├── tools
 │   └── update_tree.py
+├── LICENSE
 ├── Makefile
 ├── project_tree.txt
 └── README.md
 
-22 directories, 125 files
+23 directories, 171 files
+
 ```
 <!-- END:PROJECT_TREE -->
 
