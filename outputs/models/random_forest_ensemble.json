@@ -1,0 +1,35 @@
+{
+  "model": "random_forest",
+  "M": 3,
+  "mi_paths": [
+    "outputs/mi_runs/mi_m01.joblib",
+    "outputs/mi_runs/mi_m02.joblib",
+    "outputs/mi_runs/mi_m03.joblib"
+  ],
+  "per_m_auc": [
+    0.7514692556634306,
+    0.7512880258899677,
+    0.7466666666666667
+  ],
+  "ensemble_auc": 0.7505113268608414,
+  "selected_features": [
+    "bun",
+    "spo2",
+    "heart_rate",
+    "bicarbonate",
+    "pt",
+    "sbp",
+    "platelets",
+    "hemoglobin"
+  ],
+  "best_params_used": {
+    "n_estimators": 800,
+    "max_depth": 10,
+    "min_samples_split": 17,
+    "min_samples_leaf": 9,
+    "max_features": "sqrt",
+    "bootstrap": true
+  },
+  "calibration": true,
+  "kfolds": 5
+}

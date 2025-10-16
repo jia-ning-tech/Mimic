@@ -1,0 +1,42 @@
+{
+  "methods": [
+    "lasso"
+  ],
+  "combine": "union",
+  "k": 15,
+  "vote_k": 2,
+  "selected_features": [
+    "aids",
+    "bicarbonate",
+    "bun",
+    "cerebrovascular_disease",
+    "chloride",
+    "glucose",
+    "heart_rate",
+    "hemoglobin",
+    "malignant_cancer",
+    "mild_liver_disease",
+    "platelets",
+    "pt",
+    "sbp",
+    "spo2"
+  ],
+  "by_method": {
+    "lasso": [
+      "heart_rate",
+      "sbp",
+      "spo2",
+      "platelets",
+      "bicarbonate",
+      "bun",
+      "pt",
+      "hemoglobin",
+      "chloride",
+      "glucose",
+      "cerebrovascular_disease",
+      "mild_liver_disease",
+      "malignant_cancer",
+      "aids"
+    ]
+  }
+}

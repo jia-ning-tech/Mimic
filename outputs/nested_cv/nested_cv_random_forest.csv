@@ -1,0 +1,6 @@
+fold,n_train,n_test,best_params,inner_cv_auc,test_auc
+1,890,223,"{""n_estimators"": 500, ""max_depth"": 18, ""min_samples_split"": 17, ""min_samples_leaf"": 6}",0.7789972579484129,0.7353571428571428
+2,890,223,"{""n_estimators"": 700, ""max_depth"": 4, ""min_samples_split"": 18, ""min_samples_leaf"": 10}",0.7600683155037566,0.7326190476190476
+3,890,223,"{""n_estimators"": 600, ""max_depth"": 20, ""min_samples_split"": 19, ""min_samples_leaf"": 8}",0.7617777703805724,0.7757142857142858
+4,891,222,"{""n_estimators"": 300, ""max_depth"": 19, ""min_samples_split"": 19, ""min_samples_leaf"": 4}",0.7537465065541553,0.8032826747720365
+5,891,222,"{""n_estimators"": 300, ""max_depth"": 4, ""min_samples_split"": 18, ""min_samples_leaf"": 5}",0.7751686909581647,0.7491618773946359

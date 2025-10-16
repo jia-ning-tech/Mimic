@@ -1,0 +1,16 @@
+{
+  "model": "lightgbm",
+  "best_value": 0.7854498381877022,
+  "best_params": {
+    "n_estimators": 394,
+    "learning_rate": 0.022652143417834177,
+    "max_depth": 11,
+    "num_leaves": 87,
+    "subsample": 0.9315773912299978,
+    "colsample_bytree": 0.9968910491146261,
+    "min_child_samples": 57,
+    "min_split_gain": 0.24176539575179506,
+    "reg_lambda": 1.5638980936757017,
+    "reg_alpha": 0.008862087588366624
+  }
+}

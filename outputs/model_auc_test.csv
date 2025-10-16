@@ -1,0 +1,11 @@
+model,auc,m_index,auc_before,auc_after,roc_auc,method,ap
+logistic,0.7069773462783171,,,,,,
+xgboost,0.7645566343042072,,,,,,
+lightgbm,0.7743948220064725,,,,,,
+catboost,0.7665242718446602,,,,,,
+random_forest_isotonic,,1.0,0.751326860841424,0.7514692556634306,,,
+random_forest_isotonic,,2.0,0.7495145631067962,0.7512880258899677,,,
+random_forest_isotonic,,3.0,0.746588996763754,0.7466666666666667,,,
+random_forest_isotonic,,0.0,,0.7505113268608414,,,
+random_forest,,,,,0.7505113268608414,,
+random_forest,,,,,0.7505113268608414,raw,0.43923907738896556

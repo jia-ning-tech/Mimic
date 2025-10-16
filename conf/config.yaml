@@ -1,0 +1,175 @@
+# ============================
+# ICU Lymphoma ML Reproduction
+# ============================
+
+project:
+  seed: 42
+  results_dir: outputs
+  cache_dir: data_processed
+  artifacts_dir: outputs/artifacts        # 索引/参数/CV/MI 中间件统一落盘
+  n_jobs: -1
+  deterministic: true
+
+data:
+  raw_dir: data_raw
+  processed_dir: data_processed
+  input_format: excel                     # excel | csv | parquet | sql
+  input_files:
+    - data.xlsx
+  id_col:
+  outcome_col: mor_hospital               # 1=死亡；0=存活（如相反请告知）
+  positive_label: 1
+
+cohort:
+  include:
+    - adult_only: true
+    - first_icu_stay: true
+    - lymphoma: true
+  exclude:
+    - stay_lt_24h: true
+
+features:
+  continuous:
+    - age
+    - heart_rate
+    - sbp
+    - spo2
+    - platelets
+    - bicarbonate
+    - bun
+    - pt
+    - aptt
+    - temperature
+    - hematocrit
+    - hemoglobin
+    - wbc
+    - aniongap
+    - calcium
+    - chloride
+    - creatinine
+    - glucose
+    - sodium
+    - potassium
+    - inr
+  categorical:
+    - gender
+  comorbidities:
+    - myocardial_infarct
+    - heart_failure
+    - peripheral_vascular
+    - dementia
+    - cerebrovascular_disease
+    - chronic_pulmonary_disease
+    - rheumatic_disease
+    - peptic_ulcer_disease
+    - mild_liver_disease
+    - diabetes
+    - paraplegia
+    - renal_disease
+    - malignant_cancer
+    - severe_liver_disease
+    - metastatic_solid_tumor
+    - aids
+
+missing_data:
+  strategy: mice                          # mice | simple | complete_case
+  mice:
+    m: 20                                 # 多重插补次数
+    max_iter: 15
+    estimator: random_forest              # random_forest | bayesian_ridge
+    sample_posterior: false               # RF 必须 false；BR 可 true
+    fit_scope: train_only                 # train_only | full_sample（敏感性开关）
+    rubin_pooling: true                   # 对 AUC/ACC/F1 做 Rubin 合并
+    random_state: 42
+    mice_output_dir: outputs/mi_runs
+
+split:
+  method: stratified_holdout
+  train_size: 0.7
+  test_size: 0.3
+  shuffle: true
+  random_state: 42
+  index_cache: outputs/artifacts/split_idx.joblib
+
+preprocess:
+  scale_continuous: true
+  scaler: standard                        # standard | robust | minmax
+  outlier_clip_quantiles: [0.001, 0.999]
+  categorical_encoding: onehot_drop_first
+  impute_before_scaling: true
+
+imbalance:
+  use_class_weight: true
+  positive_class_weight: 3.65
+  resampling_in_cv: random_over_sampler   # random_over_sampler | none
+  resampling_scope: fold_train_only       # 仅对CV训练折过采样
+
+selection:
+  lasso:
+    enabled: true
+    cv: 5
+    lock_features_across_m: true          # 跨 m 锁定特征
+    freq_threshold: 0.5                   # 频次≥50%纳入最终集
+    save_path: outputs/artifacts/selected_features.json
+
+models:
+  compare:
+    - logistic
+    - ridge
+    - lda
+    - svm
+    - knn
+    - gaussian_nb
+    - decision_tree
+    - random_forest
+    - extra_trees
+    - gbdt
+    - xgboost
+    - lightgbm
+    - catboost
+    - adaboost
+    - mlp
+  optimization:
+    library: optuna
+    n_trials: 100
+    cv_folds: 5
+    direction: maximize
+  primary_metric: roc_auc
+  # CPU 友好的 CatBoost 预置参数（会被调参结果覆盖/合并）
+  catboost_defaults:
+    iterations: 1000
+    learning_rate: 0.03
+    depth: 6
+    loss_function: Logloss
+    eval_metric: AUC
+    thread_count: -1
+    random_seed: 42
+    od_type: IncToDec
+    od_wait: 50
+    verbose: false
+
+evaluation:
+  metrics: [roc_auc, pr_auc, f1, accuracy, precision, recall, brier]
+  calibration: true
+  calibration_method: ["none", "isotonic"]   # 原始/等值回归对比
+  thresholds: [0.2, 0.3, 0.4, 0.5]
+  youden: true
+  curves:
+    roc: true
+    pr: true
+    calibration_curves: true
+  report_ci: false                            # 如需bootstrap CI可改 true
+
+explainability:
+  shap:
+    enabled: true
+    summary: true
+    dependence: true
+    waterfall: true
+    sample_size: 4000                         # 绘图抽样上限（CPU 环境友好）
+    save_dir: outputs/shap
+
+output:
+  figures: "outputs/figures/"
+  tables: "outputs/tables/"
+  logs: "outputs/logs/"

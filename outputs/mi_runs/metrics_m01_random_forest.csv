@@ -1,0 +1,2 @@
+m,model,method,n_test,features,roc_auc,average_precision,accuracy,f1,precision,recall,brier
+1,random_forest,raw,478,8,0.7481553398058252,0.4669247682732432,0.8075313807531381,0.28125,0.72,0.17475728155339806,0.1458525020920502

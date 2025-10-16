@@ -1,0 +1,152 @@
+{
+  "selected_features": [
+    "bun",
+    "spo2",
+    "heart_rate",
+    "bicarbonate",
+    "pt",
+    "sbp",
+    "platelets",
+    "hemoglobin"
+  ],
+  "target_k": 8,
+  "restrict_to": "continuous",
+  "freq_threshold": 0.5,
+  "locked_across_m": true,
+  "M": 3,
+  "cv_folds": 5,
+  "class_weight": {
+    "0": 1.0,
+    "1": 3.65
+  },
+  "candidate_space_size": 21,
+  "corr_threshold": 0.9,
+  "all_features_ranked": [
+    {
+      "feature": "bun",
+      "count": 3,
+      "freq": 1.0,
+      "mean_abs_coef": 0.22085521618525186
+    },
+    {
+      "feature": "spo2",
+      "count": 3,
+      "freq": 1.0,
+      "mean_abs_coef": 0.1846033583084742
+    },
+    {
+      "feature": "heart_rate",
+      "count": 3,
+      "freq": 1.0,
+      "mean_abs_coef": 0.16289332012335458
+    },
+    {
+      "feature": "bicarbonate",
+      "count": 3,
+      "freq": 1.0,
+      "mean_abs_coef": 0.12127362191677094
+    },
+    {
+      "feature": "pt",
+      "count": 3,
+      "freq": 1.0,
+      "mean_abs_coef": 0.11183411379655202
+    },
+    {
+      "feature": "sbp",
+      "count": 3,
+      "freq": 1.0,
+      "mean_abs_coef": 0.09208038697640102
+    },
+    {
+      "feature": "platelets",
+      "count": 3,
+      "freq": 1.0,
+      "mean_abs_coef": 0.08206366747617722
+    },
+    {
+      "feature": "hemoglobin",
+      "count": 3,
+      "freq": 1.0,
+      "mean_abs_coef": 0.04581007485588392
+    },
+    {
+      "feature": "age",
+      "count": 0,
+      "freq": 0.0,
+      "mean_abs_coef": 0.0
+    },
+    {
+      "feature": "aptt",
+      "count": 0,
+      "freq": 0.0,
+      "mean_abs_coef": 0.0
+    },
+    {
+      "feature": "temperature",
+      "count": 0,
+      "freq": 0.0,
+      "mean_abs_coef": 0.0
+    },
+    {
+      "feature": "hematocrit",
+      "count": 0,
+      "freq": 0.0,
+      "mean_abs_coef": 0.0
+    },
+    {
+      "feature": "wbc",
+      "count": 0,
+      "freq": 0.0,
+      "mean_abs_coef": 0.0
+    },
+    {
+      "feature": "aniongap",
+      "count": 0,
+      "freq": 0.0,
+      "mean_abs_coef": 0.0
+    },
+    {
+      "feature": "calcium",
+      "count": 0,
+      "freq": 0.0,
+      "mean_abs_coef": 0.0
+    },
+    {
+      "feature": "chloride",
+      "count": 0,
+      "freq": 0.0,
+      "mean_abs_coef": 0.0
+    },
+    {
+      "feature": "creatinine",
+      "count": 0,
+      "freq": 0.0,
+      "mean_abs_coef": 0.0
+    },
+    {
+      "feature": "glucose",
+      "count": 0,
+      "freq": 0.0,
+      "mean_abs_coef": 0.0
+    },
+    {
+      "feature": "sodium",
+      "count": 0,
+      "freq": 0.0,
+      "mean_abs_coef": 0.0
+    },
+    {
+      "feature": "potassium",
+      "count": 0,
+      "freq": 0.0,
+      "mean_abs_coef": 0.0
+    },
+    {
+      "feature": "inr",
+      "count": 0,
+      "freq": 0.0,
+      "mean_abs_coef": 0.0
+    }
+  ]
+}
