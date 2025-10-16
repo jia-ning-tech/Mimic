@@ -100,7 +100,6 @@ make report MODEL=random_forest METHOD=isotonic
 .
 ├── catboost_info
 │   ├── learn
-│   │   └── events.out.tfevents
 │   ├── tmp
 │   ├── catboost_training.json
 │   ├── learn_error.tsv
@@ -129,85 +128,15 @@ make report MODEL=random_forest METHOD=isotonic
 │   └── 07_appendix_data_dictionary.ipynb
 ├── outputs
 │   ├── artifacts
-│   │   ├── feature_schema.json
-│   │   ├── selected_features.json
-│   │   └── split_idx.joblib
 │   ├── feature_selection
-│   │   ├── corr_selected.png
-│   │   ├── selected_features.csv
-│   │   └── selected_features.json
 │   ├── figures
-│   │   ├── calibration_test_random_forest_isotonic.png
-│   │   ├── calibration_test_random_forest_mi.png
-│   │   ├── calibration_test_random_forest.png
-│   │   ├── nested_cv_auc_random_forest.png
-│   │   ├── overview_corr_numeric.png
-│   │   ├── overview_missing_top10.png
-│   │   ├── overview_missing_top10_preproc.png
-│   │   ├── preproc_train_test_distribution.png
-│   │   ├── preproc_winsorization_demo.png
-│   │   ├── pr_test_random_forest_isotonic.png
-│   │   ├── pr_test_random_forest.png
-│   │   ├── roc_test_random_forest_isotonic.png
-│   │   ├── roc_test_random_forest_mi.png
-│   │   ├── roc_test_random_forest.png
-│   │   └── subgroup_forest_random_forest_isotonic.png
 │   ├── logs
 │   ├── mi_runs
-│   │   ├── index.json
-│   │   ├── metrics_m01_random_forest.csv
-│   │   ├── metrics_m01_random_forest_isotonic.csv
-│   │   ├── metrics_m02_random_forest.csv
-│   │   ├── metrics_m02_random_forest_isotonic.csv
-│   │   ├── metrics_m03_random_forest.csv
-│   │   ├── metrics_m03_random_forest_isotonic.csv
-│   │   ├── mi_m01.joblib
-│   │   ├── mi_m02.joblib
-│   │   └── mi_m03.joblib
 │   ├── models
-│   │   ├── random_forest_ensemble.json
-│   │   ├── random_forest_isotonic_ensemble.json
-│   │   ├── random_forest_isotonic_m01.joblib
-│   │   ├── random_forest_isotonic_m02.joblib
-│   │   ├── random_forest_isotonic_m03.joblib
-│   │   ├── random_forest_m01.joblib
-│   │   ├── random_forest_m02.joblib
-│   │   └── random_forest_m03.joblib
 │   ├── nested_cv
-│   │   ├── metrics_per_fold_random_forest.csv
-│   │   ├── nested_cv_random_forest.csv
-│   │   ├── nested_cv_random_forest_summary.json
-│   │   └── summary_random_forest.json
 │   ├── probs
-│   │   ├── probs_ensemble_random_forest_isotonic.npy
-│   │   ├── probs_ensemble_random_forest.npy
-│   │   ├── probs_m01_random_forest_isotonic.npy
-│   │   ├── probs_m01_random_forest.npy
-│   │   ├── probs_m02_random_forest_isotonic.npy
-│   │   ├── probs_m02_random_forest.npy
-│   │   ├── probs_m03_random_forest_isotonic.npy
-│   │   └── probs_m03_random_forest.npy
 │   ├── shap
-│   │   ├── random_forest_model.joblib
-│   │   ├── shap_importance_bar_random_forest.png
-│   │   ├── shap_importance_random_forest.csv
-│   │   ├── shap_summary_random_forest.png
-│   │   └── shap_waterfall_random_forest_idx316.png
 │   ├── tables
-│   │   ├── data_dictionary.csv
-│   │   ├── metrics_test.csv
-│   │   ├── metrics_test_random_forest.csv
-│   │   ├── metrics_test_random_forest_isotonic.csv
-│   │   ├── metrics_test_random_forest_mi.csv
-│   │   ├── missing_top10_preproc.csv
-│   │   ├── model_auc_test.csv
-│   │   ├── model_card_logistic_isotonic.md
-│   │   ├── subgroup_metrics_random_forest_isotonic.csv
-│   │   ├── summary_metrics_random_forest.csv
-│   │   ├── summary_shap_top20_random_forest.csv
-│   │   ├── thresholds_random_forest.csv
-│   │   ├── thresholds_random_forest_isotonic.csv
-│   │   └── train_test_numeric_compare.csv
 │   ├── best_params_lightgbm.json
 │   ├── best_params_random_forest.json
 │   ├── calibration_random_forest_isotonic_m01.png
@@ -243,25 +172,6 @@ make report MODEL=random_forest METHOD=isotonic
 │   └── thr_metrics_random_forest_isotonic.png
 ├── src
 │   ├── __pycache__
-│   │   ├── calibrate.cpython-310.pyc
-│   │   ├── data_utils.cpython-310.pyc
-│   │   ├── dca_copy.cpython-310.pyc
-│   │   ├── dca.cpython-310.pyc
-│   │   ├── evaluate.cpython-310.pyc
-│   │   ├── feature_select.cpython-310.pyc
-│   │   ├── ingest.cpython-310.pyc
-│   │   ├── __init__.cpython-310.pyc
-│   │   ├── models.cpython-310.pyc
-│   │   ├── multiple_imputation.cpython-310.pyc
-│   │   ├── nested_cv.cpython-310.pyc
-│   │   ├── optuna_search.cpython-310.pyc
-│   │   ├── preprocess.cpython-310.pyc
-│   │   ├── report_export.cpython-310.pyc
-│   │   ├── shap_run.cpython-310.pyc
-│   │   ├── subgroup_eval.cpython-310.pyc
-│   │   ├── threshold_scan.cpython-310.pyc
-│   │   ├── train.cpython-310.pyc
-│   │   └── train_mi.cpython-310.pyc
 │   ├── calibrate.py
 │   ├── data_utils.py
 │   ├── dca.py
@@ -293,7 +203,7 @@ make report MODEL=random_forest METHOD=isotonic
 ├── project_tree.txt
 └── README.md
 
-23 directories, 171 files
+23 directories, 81 files
 ```
 <!-- END:PROJECT_TREE -->
 
