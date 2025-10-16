@@ -95,6 +95,7 @@ make report MODEL=random_forest METHOD=isotonic
 > 你可运行 `make readme-tree DEPTH=4` 将目录树注入下方占位区。
 
 <!-- BEGIN:PROJECT_TREE -->
+<!-- BEGIN:PROJECT_TREE -->
 ```text
 .
 ├── catboost_info
@@ -293,7 +294,6 @@ make report MODEL=random_forest METHOD=isotonic
 └── README.md
 
 23 directories, 171 files
-
 ```
 <!-- END:PROJECT_TREE -->
 
